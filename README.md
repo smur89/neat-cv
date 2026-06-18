@@ -32,7 +32,7 @@ A modern and elegant CV template for Typst, inspired by [Awesome CV](https://git
 
 ### Software
 
-- [typst](https://typst.app/) (tested with v0.13.0+)
+- [typst](https://typst.app/) (tested with v0.15.0+)
 
 ### Fonts
 
@@ -180,3 +180,74 @@ Sincerely,
 ```
 
 For a complete example, see the `template/letter.typ` file in the repository.
+
+### Loading from a JSON Resume document
+
+If you already maintain your CV as a [JSON Resume](https://jsonresume.org/)
+document (`resume.json`), neat-cv can load it directly. Validation and
+type coercion go through
+[`@preview/gairm-import`](https://typst.app/universe/package/gairm-import),
+so schema errors abort compilation with a combined report.
+
+One-call (renders a full document with the standard `cv-with-side`
+layout):
+
+```typst
+#import "@preview/neat-cv:1.1.0": neat-cv-from-json
+
+#neat-cv-from-json(
+  json("resume.json"),
+  accent-color: rgb("#4682b4"),
+  profile-picture: image("my_profile.png"),
+)
+```
+
+Any keyword argument accepted by `cv()` (accent colour, fonts, paper
+size, profile picture, GDPR footer, …) can be passed alongside the
+data; they override the JSON-derived defaults.
+
+If you'd rather drive the layout yourself — keeping the imperative
+template style and only borrowing the data — use `from-json-resume`,
+which returns a `(author: …, sections: …)` dict. JSON Resume fields are
+all optional, so use `.at(..., default: …)` defensively, and remember
+that dates pass through as raw ISO strings (the one-call wrapper above
+prettifies them via its own formatter):
+
+```typst
+#import "@preview/neat-cv:1.1.0": cv, cv-with-side, entry, from-json-resume
+
+#let resume = from-json-resume(json("resume.json"))
+
+#show: cv.with(author: resume.author)
+
+#cv-with-side[
+  // …your sidebar…
+][
+  = Experience
+  #for w in resume.sections.at("work", default: ()) {
+    entry(
+      title: w.at("position", default: ""),
+      institution: w.at("name", default: ""),
+      date: w.at("startDate", default: ""),
+      w.at("summary", default: ""),
+    )
+  }
+]
+```
+
+#### Optional schema extensions
+
+`from-json-resume` / `neat-cv-from-json` accept a handful of optional
+fields beyond canonical JSON Resume so a single `resume.json` can drive
+the full template. All extensions are opt-in; a vanilla document still
+validates and renders.
+
+| Field | Type | Effect |
+|---|---|---|
+| `basics.positions` | `array<string>` | Multi-line role header (overrides single-string `basics.label`) |
+| `basics.profiles[].icon` | `string` | Font Awesome icon name for custom-link profiles (e.g. `"car"`) |
+| `basics.nationality` | `string` | "Personal" sidebar block |
+| `basics.birthdate` | `string` | "Personal" sidebar block (passed through verbatim) |
+| `languages[].level` | `number` | `item-with-level` rating bars (canonical `fluency` becomes the subtitle) |
+| `skills[].entries[]` | `array<{name, level}>` | Per-keyword `item-with-level` bars (mutually exclusive with `keywords`) |
+| `education[].summary` | `content` | Dissertation / thesis line above score / coursework |

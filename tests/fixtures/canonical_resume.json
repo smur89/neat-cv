@@ -1,0 +1,121 @@
+{
+  "$schema": "https://raw.githubusercontent.com/jsonresume/resume-schema/v1.0.0/schema.json",
+  "basics": {
+    "name": "Emmett Brown",
+    "label": "Inventor & Theoretical Physicist",
+    "email": "doc.brown@hillvalley.edu",
+    "phone": "(555) 121-1955",
+    "url": "https://docbrownlabs.com",
+    "summary": "Visionary inventor and theoretical physicist, renowned for pioneering work in time travel, flux capacitor technology, and unconventional scientific research.",
+    "location": {
+      "address": "1640 Riverside Drive",
+      "city": "Hill Valley",
+      "region": "California",
+      "countryCode": "USA"
+    },
+    "profiles": [
+      { "network": "Twitter",  "username": "docbrown1955",              "url": "https://twitter.com/docbrown1955" },
+      { "network": "LinkedIn", "username": "emmett-brown-hv",           "url": "https://linkedin.com/in/emmett-brown-hv" }
+    ]
+  },
+  "work": [
+    {
+      "name": "Hill Valley Laboratory",
+      "position": "Independent Inventor & Research Scientist",
+      "location": "Hill Valley, CA, USA",
+      "startDate": "1955",
+      "summary": "Invented the Flux Capacitor and built the DeLorean Time Machine.",
+      "highlights": [
+        "Designed and constructed temporal-displacement apparatus.",
+        "Conducted experiments in temporal mechanics and quantum theory."
+      ]
+    },
+    {
+      "name": "Pacific Science Institute",
+      "position": "Lead Research Physicist",
+      "location": "San Francisco, CA, USA",
+      "startDate": "1955",
+      "endDate": "1972",
+      "highlights": [
+        "Led a six-person team investigating applied electromagnetism.",
+        "Co-authored seven peer-reviewed articles on electromagnetic field theory."
+      ]
+    }
+  ],
+  "education": [
+    {
+      "institution": "California Institute of Technology",
+      "area": "Physics",
+      "studyType": "PhD",
+      "startDate": "1948",
+      "endDate": "1951"
+    },
+    {
+      "institution": "MIT",
+      "area": "Engineering",
+      "studyType": "BSc",
+      "startDate": "1939",
+      "endDate": "1943"
+    }
+  ],
+  "volunteer": [
+    {
+      "organization": "Hill Valley Science Club",
+      "position": "Mentor",
+      "startDate": "1985",
+      "endDate": "1990",
+      "summary": "Mentored aspiring young scientists.",
+      "highlights": ["Ran weekend lab sessions", "Coordinated regional science fair entries"]
+    }
+  ],
+  "projects": [
+    {
+      "name": "DeLorean Time Machine",
+      "startDate": "1985",
+      "endDate": "1990",
+      "description": "A modified DMC DeLorean equipped with a flux capacitor.",
+      "highlights": ["Achieves temporal displacement at 88 mph", "Powered by Mr. Fusion home reactor"],
+      "keywords": ["Temporal mechanics", "Automotive engineering"]
+    }
+  ],
+  "awards": [
+    {
+      "title": "Lifetime Achievement in Innovation",
+      "date": "1990",
+      "awarder": "International Society of Inventors",
+      "summary": "For a lifetime of inventive contributions to science and engineering."
+    }
+  ],
+  "certificates": [
+    {
+      "name": "Nuclear Materials Handling",
+      "date": "1985",
+      "issuer": "United States Department of Energy"
+    }
+  ],
+  "skills": [
+    {
+      "name": "Physics & Engineering",
+      "keywords": ["Temporal Mechanics", "Quantum Theory", "Mechanical Engineering"]
+    },
+    {
+      "name": "Technology",
+      "keywords": ["Flux Capacitor Design", "Time Machine Construction"]
+    }
+  ],
+  "languages": [
+    { "language": "English", "fluency": "Native" },
+    { "language": "German",  "fluency": "Intermediate" },
+    { "language": "French",  "fluency": "Basic" }
+  ],
+  "interests": [
+    { "name": "Temporal Mechanics" },
+    { "name": "Quantum Physics" }
+  ],
+  "references": [
+    {
+      "name": "Marty McFly",
+      "reference": "Long-term collaborator and field assistant in temporal experiments."
+    }
+  ]
+}
